@@ -1,0 +1,23 @@
+{
+    "name": "arrow/sudoku",
+    "description": "Sudoku library",
+    "authors": [
+        {
+            "name": "Michał Strzelczyk",
+            "email": "kontakt@digitalfarm.pl"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Arrow\\": ["src/"]
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ]
+    }
+}
