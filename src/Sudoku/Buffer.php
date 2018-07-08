@@ -98,7 +98,7 @@ class Buffer
      * @return Buffer
      */
     public function useNumber(int $number): self {
-        $this->buffer[$number -1] = $number;
+        $this->buffer[$number -1] = (int) $number;
 
         return $this;
     }
