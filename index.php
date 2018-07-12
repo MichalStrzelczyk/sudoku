@@ -1,6 +1,7 @@
 <?php
 
 require_once './vendor/autoload.php';
+ini_set('xdebug.max_nesting_level', 99999);
 
 $sudoku = [
   [8,9,6,null,null,null,null,null,null],
@@ -26,7 +27,7 @@ $sudoku = [
     [null,null,null,null,null,null,null,null,null],
 ];
 
-/*$input = [
+$sudoku = [
     [null, 1, 6, 4, null, null, null, null, 8],
     [null, 4, null, 9, null, 6, 1, null, null],
     [9, 3, null, null, null, null, null, 7, 6],
@@ -38,7 +39,7 @@ $sudoku = [
     [5, 9, null, null, null, null, null, 8, 4],
     [null, null, 7, 5, null, 3, null, 9, null],
     [4, null, null, null, null, 7, 3, 6, null],
-];*/
+];
 
 /*$input = [
     [null, 1, null, 4, null, null, null, null, 8],
@@ -57,9 +58,9 @@ $sudoku = [
 
 $start = microtime(true);
 $sudokuSolver = new \Arrow\Sudoku\SudokuSolver($sudoku);
-$result = $sudokuSolver->solve();
+$sudokuSolver->solve();
 $end = microtime(true);
 
-\Arrow\Sudoku\Printer::show($result);
+\Arrow\Sudoku\Printer::show($sudokuSolver->getSudoku());
 echo sprintf('Solved in: %s',$end-$start);
 

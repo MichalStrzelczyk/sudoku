@@ -16,8 +16,11 @@ class Buffer
      * Buffer constructor.
      */
     public function __construct(){
+        $this->buffer = [0,0,0,0,0,0,0,0,0];
+    }
 
-        $this->buffer = \SplFixedArray::fromArray([0,0,0,0,0,0,0,0,0]);
+    public function __clone(){
+        $this->reset();
     }
 
     /**
@@ -41,7 +44,7 @@ class Buffer
     /**
      * @return Buffer
      */
-    public function reset(): self {
+    public function reset(): void {
         $this->buffer[0] = 0;
         $this->buffer[1] = 0;
         $this->buffer[2] = 0;
@@ -52,7 +55,7 @@ class Buffer
         $this->buffer[7] = 0;
         $this->buffer[8] = 0;
 
-        return $this;
+        //return $this;
     }
 
     /**
@@ -130,7 +133,7 @@ class Buffer
     /**
      * @return SplFixedArray
      */
-    public function getBuffer(): \SplFixedArray {
+    public function getBuffer(): array {
 
         return $this->buffer;
     }
@@ -140,7 +143,7 @@ class Buffer
      */
     public function isFull(): bool {
 
-        return 45 === array_sum($this->buffer->toArray());
+        return 45 === array_sum($this->buffer);
     }
 
     /**

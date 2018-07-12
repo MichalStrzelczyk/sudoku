@@ -7,6 +7,13 @@ namespace Arrow\Sudoku;
 class BufferManager
 {
 
+    private $buffer;
+
+    public function __construct()
+    {
+        $this->buffer = Buffer::create();
+    }
+
     /**
      * @param Buffer $bufferA
      * @param Buffer $bufferB
@@ -14,6 +21,7 @@ class BufferManager
      * @return Buffer
      */
     public static function product(Buffer $bufferA, Buffer $bufferB): Buffer {
+        var_dump(123);exit;
         $result = Buffer::create();
         $resultA = $bufferA->getUsedNumbers();
         $resultB = $bufferB->getUsedNumbers();
@@ -33,7 +41,8 @@ class BufferManager
      *
      * @return Buffer
      */
-    public static function sum(Buffer $bufferA, Buffer $bufferB): Buffer {
+    public function sum(Buffer $bufferA, Buffer $bufferB): Buffer {
+        //$result = clone $this->buffer;
         $result = Buffer::create();
         $resultA = $bufferA->getUsedNumbers();
         foreach($resultA as $numberA){
